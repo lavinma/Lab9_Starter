@@ -24,7 +24,7 @@ form.addEventListener('submit', e => {
 const [
   logBtn, errorBtn, countBtn, warnBtn, assertBtn, clearBtn, dirBtn,
   dirxmlBtn, groupStartBtn, groupEndBtn, tableBtn, timeStartBtn,
-  timeEndBtn, traceBtn, globalErrorBtn, tryCatchBtn, throwErrorBtn
+  timeEndBtn, traceBtn, globalErrorBtn, tryCatchBtn, throwErrorBtn, trackJsBtn
 ] = document.querySelectorAll('#error-btns > button');
 
 
@@ -154,3 +154,7 @@ window.onerror = function (message, source, lineno, colno, error) {
   console.log("Error object:", error);
 };
 
+// manually tracks error for testing
+trackJsBtn.addEventListener('click', () => {
+  TrackJS.track('TrackJS Manual Error Triggered from button');
+});
